@@ -59,11 +59,7 @@ class Particle {
     this.x+=this.speedX;
     this.y+=this.speedY;
     this.speedY += 0.01;
-<<<<<<< HEAD
     this.speedX +=0.03;
-=======
-    this.speedX +=0.01;
->>>>>>> 9a10b405e0e94ce9e429c3a7491f812840a1e16e
     this.photo = flyIMG;
   }
   display() {
