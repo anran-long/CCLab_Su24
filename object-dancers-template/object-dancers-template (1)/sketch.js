@@ -39,6 +39,9 @@ class DancerAnran {
     this.y = startY;
     this.angle = 90;
     this.angleSpeed = radians(5);
+
+    this.legAngle = 0;
+    this.legSpeed = 0.5;
     // add properties for your dancer here:
     //..
     //..
@@ -48,6 +51,13 @@ class DancerAnran {
     // update properties here to achieve
     // your dancer's desired moves and behaviour
     this.angle+=this.angleSpeed;
+
+    this.legAngle += this.legSpeed;
+    if (this.legAngle > 20 || this.legAngle < -20) {
+      this.legSpeed *= -1;
+    }
+
+    this.legAngle2 = this.legAngle; // Synchronize both leg angles
 
   }
   display() {
@@ -64,18 +74,19 @@ class DancerAnran {
     ellipse(0, -50, 20, 25);
     //body
     rect(-14, -35, 28.5, 50);
-    //leg + feet
-    strokeWeight(2);
-    stroke("red");
-    line(-10, 15, -10, 70);
-    line(10, 15, 10, 70);
-    strokeWeight(0.5);
-    fill("green");
-    circle(-10, 70, 10, 10);
-    circle(10, 70, 10, 10);
-
+    // //leg + feet
+    // strokeWeight(2);
+    // stroke("red");
+    // line(-10, 15, -10, 70);
+    // line(10, 15, 10, 70);
+    // strokeWeight(0.5);
+    // fill("green");
+  
     this.drawArm(-10,-30);
     this.drawArm2 (10,-30);
+    this.drawLeg(-10, 15);
+    this.drawLeg(10, 15);
+
   
 
 
@@ -100,7 +111,7 @@ class DancerAnran {
     //arm 
     rotate(this.angle);
     stroke("green");
-    strokeWeight(1);
+    strokeWeight(2);
     line(0,0,0,40);
     
     fill("red");
@@ -114,12 +125,34 @@ class DancerAnran {
      //arm2 
      rotate(this.angle);
      stroke("green");
-     strokeWeight(1);
+     strokeWeight(2);
      line(0,0,0,40);
-     
+
      fill("red");
      circle(0,0,5);
      pop();
+    }
+
+    drawLeg(legx, legy) {
+      push();
+      translate(legx, legy);
+      strokeWeight(2);
+      stroke("red");
+  
+      // Upper leg
+      push();
+      rotate(radians(this.legAngle));
+      line(0, 0, 0, 25);
+     
+      translate(0, 25);
+  
+      // Lower leg
+      rotate(radians(this.legAngle2) / 2); // Adjust the bending here
+      line(0, 0, 0, 25);
+      circle(0,25,10)
+      pop();
+  
+      pop();
     }
 
   }
