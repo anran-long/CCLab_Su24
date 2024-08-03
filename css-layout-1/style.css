@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(234, 231, 231);
+}
+
+p{
+    color:yellow
+}
+
+#viw{
+    font-weight: bold;
+    background-color:blueviolet;
+    position: relative;
+    left: 50px;
+}
+
+.textbook{
+    background-color:cadetblue;
+    border-style: dotted;
+    border-color:blueviolet;
+    border-width: 5px;
+
+    margin: 10px;
+    padding: 15px;
+
+
+}
+
+#canvas-parent{
+    margin-bottom: 30px;
+}
+
+.one{
+    position: absolute; 
+    left: 10px;
+    top: 10px;
+}
+
+.two{
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+
+}
+
+.three{
+    position: relative ;
+    left : 50px;
+}

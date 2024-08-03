@@ -1,0 +1,25 @@
+body{
+    background-color: hotpink;
+}
+
+#main{
+    background-color: bisque;
+    width:900px;
+    margin: auto;
+}
+h1{
+    background-color: aqua;
+    /* margin: auto; */
+    text-align: center;
+}
+
+#canvas-parent{
+    background-color: blue;
+    text-align: center;
+}
+p{
+    background-color: aquamarine;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px
+}
