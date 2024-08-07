@@ -64,11 +64,29 @@ class Moment {
   }
 
   display() {
-    // if (this.enlarged==true) {
-    //   image(this.img, width / 2-100 , height / 2-100, 100 * 4, 100 * 4);
-    // } else {
-    image(this.img, this.x, this.y, this.smallW, this.smallH);
-    // }
+    if (this.enlarged == true) {
+      if (this.x < width / 2) {
+        image(this.img, width / 2 - this.smallW * 2, height / 2 - this.smallH, this.smallW * 2, this.smallH * 2);
+      } else {
+        image(this.img, width / 2, height / 2 - this.smallH, this.smallW * 2, this.smallH * 2);
+      }
+    } else {
+      image(this.img, this.x, this.y, this.smallW, this.smallH);
+      
+    }
+  }
+
+  checkIfClicked() {
+    if (
+      mouseX > this.x &&
+      mouseX < this.x + this.smallW &&
+      mouseY > this.y &&
+      mouseY < this.y + this.smallH
+    ) {
+      this.enlarged = true;
+    } else {
+      this.enlarged = false;
+    }
   }
 
 }
@@ -110,45 +128,25 @@ function draw() {
   noFill();
   strokeWeight(3);
   stroke("red")
-  rect(100, height/2, 100, 100)
+  rect(100, height / 2, 100, 100)
 
   noFill();
   strokeWeight(3);
   stroke("red")
-  rect(width-200, height/2, 100, 100)
+  rect(width - 200, height / 2, 100, 100)
 
   //midline
   stroke(255);
   strokeWeight(1);
-  line(width/2, 0, width/2, height);
+  line(width / 2, 0, width / 2, height);
 }
 
-// function mousePressed() {
-//   for (let i = 0; i < 40; i++) {
-//     let myMoment = momentsMy[i];
-//     if (
-//       mouseX > myMoment.x &&
-//       mouseX < myMoment.x + 100 &&
-//       mouseY > myMoment.y &&
-//       mouseY < myMoment.y + 100
-//     ) {
-//       myMoment.enlarged = true;
-//     }else{
-//       myMoment.enlarged = false;
-//     }
-//   }
+function mousePressed() {
+  for (let i = 0; i < momentsMy.length; i++) {
+    momentsMy[i].checkIfClicked();
+  }
+  for (let i = 0; i < momentsCousin.length; i++) {
+    momentsCousin[i].checkIfClicked();
+  }
+}
 
-//   for (let i = 0; i < momentsCousin.length; i++) {
-//     let cousinMoment = momentsCousin[i];
-//     if (
-//       mouseX > cousinMoment.x &&
-//       mouseX < cousinMoment.x + 100 &&
-//       mouseY > cousinMoment.y &&
-//       mouseY < cousinMoment.y + 100
-//     ) {
-//       cousinMoment.enlarged = true;
-//     }else{
-//       cousinMoment.enlarged = false;
-//     }
-//   }
-// }

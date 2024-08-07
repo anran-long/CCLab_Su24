@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallel Lives: My Cousin & Me</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+    <style>
+        #game-page {
+            display: none;
+        }
+
+        #instructions-page {
+            display: block;
+            text-align: center;
+            color: rgb(255, 254, 237);
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        #instructions-page img {
+            max-width: 37%;
+            height: auto;
+            margin-left: 100px;
+        }
+
+        button {
+            background-color: rgb(255, 254, 237);
+            border: none;
+            color: rgb(19, 8, 80);
+            text-align: center;
+            font-size: 25px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .highlight-cousin {
+            color: beige;
+        }
+
+        .highlight-me {
+            color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="instructions-page">
+        <h1>Parallel Lives: My Cousin & Me</h1>
+        <p>1. This is a memory matching game.</p>
+        <p>2. Click on an image to enlarge it.</p>
+        <p>3. Find the matching pair by year.</p>
+        <p>4. If the years match, the pair will be removed.</p>
+        <p>5. Match all pairs to complete the game.</p>
+        <p><span class="highlight-cousin">MY COUSIN</span> & <span class="highlight-me">ME</span> ARE 2004-1988=16 YEARS APART.</p>
+        <img src="assets/cousin background.png" alt="Instruction Image 1">
+        <button onclick="startGame()">Click to start the game</button>
+    </div>
+
+    <div id="game-page"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <script src="sketch.js"></script>
+</body>
+
+</html>
