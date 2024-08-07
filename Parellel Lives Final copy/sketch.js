@@ -85,7 +85,7 @@ class Moment {
   }
 
   setPosition(x, y) {
-    var padding = 30;
+    var padding = 20;
 
     this.x = random(padding, width - this.smallW - padding);
     this.y = random(padding, height - 300 - padding);
