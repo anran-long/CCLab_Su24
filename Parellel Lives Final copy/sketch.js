@@ -133,7 +133,7 @@ class Moment {
       fill(255);
       textSize(20);
       textAlign(CENTER);
-      text(this.year, xPos + this.enlargedW / 2, yPos + this.enlargedH + 24);
+      // text(this.year, xPos + this.enlargedW / 2, yPos + this.enlargedH + 24);
     } else {
       stroke(0, 50);
       strokeWeight(2);
